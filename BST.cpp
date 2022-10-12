@@ -89,6 +89,22 @@ void BST<T>::operator=(const BST<T> &tree) {
 
 }
 
+template<class T>
+void BST<T>::clear(Node<T> *node) {
+    if (node == nullptr) {
+        return;
+    }
+        clear(node->left);
+        clear(node->right);
+        delete node;
+
+}
+
+template<class T>
+void BST<T>::clear() {
+    clear(root);
+}
+
 namespace {
     template<class T>
     void output(T& data){

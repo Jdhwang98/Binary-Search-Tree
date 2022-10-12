@@ -22,6 +22,7 @@ private:
     void inOrder(Node<T>* node, void f(T&));
     void postOrder(Node<T>* node, void f(T&));
     void breathFirst(Node<T>* node, void f(T&) = output);
+    void clear(Node<T>* node);
 
 public:
     BST();

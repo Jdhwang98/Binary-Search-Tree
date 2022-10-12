@@ -3,6 +3,7 @@
 void doubleTree(int& data);
 int main() {
     BST<int> tree;
+    std::cout<<"In order output: "<<std::endl;
     tree.insert(20);
     tree.insert(10);
     tree.insert(5);
@@ -10,7 +11,15 @@ int main() {
     tree.insert(25);
     tree.insert(30);
     tree.insert(50);
-    tree.preOrder();
+    tree.inOrder();
+    tree.clear();
+    std::cout<<"output after clear"<<std::endl;
+    tree.insert(69);
+    tree.insert(4);
+    tree.insert(20);
+    tree.insert(100);
+    tree.inOrder();
+
     return 0;
 }
 
