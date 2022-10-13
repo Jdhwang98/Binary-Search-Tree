@@ -7,6 +7,8 @@
 
 template<class T>
 struct Node {
+    Node<T>* next = nullptr;
+    Node<T>* prev = nullptr;
     Node<T>* left = nullptr;
     Node<T>* right = nullptr;
     T data;

@@ -5,6 +5,8 @@
 #ifndef ANOTHERBST_BST_H
 #define ANOTHERBST_BST_H
 #include "Node.h"
+#include "Queue.h"
+#include "Stack.h"
 #include <iostream>
 
 namespace {
@@ -16,13 +18,15 @@ template <class T>
 class BST {
 private:
     Node<T>* root = nullptr;
-    int _size = 0;
+    Queue<T> queue;
+    unsigned depth = 0;
     void insert(Node<T>* &node, const T& data);
     void preOrder(Node<T>* node, void f(T&));
     void inOrder(Node<T>* node, void f(T&));
     void postOrder(Node<T>* node, void f(T&));
-    void breathFirst(Node<T>* node, void f(T&) = output);
-    void clear(Node<T>* node);
+    void breadthFirst(Node<T>* node, void f(T&) = output);
+    void clear(Node<T>* &node);
+    bool empty(Node<T>* node);
 
 public:
     BST();
@@ -33,7 +37,7 @@ public:
     void preOrder(void f(T&) = output);
     void inOrder(void f(T&) = output);
     void postOrder(void f(T&) = output);
-    void breathFirst(void f(T&) = output);
+    void breadthFirst(void f(T &) = output);
     void clear();
     bool empty();
     int size();

@@ -58,6 +58,24 @@ build CMakeFiles/AnotherBST.dir/BST.cpp.o: CXX_COMPILER__AnotherBST_Debug /Users
   OBJECT_DIR = CMakeFiles/AnotherBST.dir
   OBJECT_FILE_DIR = CMakeFiles/AnotherBST.dir
 
+build CMakeFiles/AnotherBST.dir/LinkedList.cpp.o: CXX_COMPILER__AnotherBST_Debug /Users/john/CLionProjects/AnotherBST/LinkedList.cpp || cmake_object_order_depends_target_AnotherBST
+  DEP_FILE = CMakeFiles/AnotherBST.dir/LinkedList.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  OBJECT_DIR = CMakeFiles/AnotherBST.dir
+  OBJECT_FILE_DIR = CMakeFiles/AnotherBST.dir
+
+build CMakeFiles/AnotherBST.dir/Queue.cpp.o: CXX_COMPILER__AnotherBST_Debug /Users/john/CLionProjects/AnotherBST/Queue.cpp || cmake_object_order_depends_target_AnotherBST
+  DEP_FILE = CMakeFiles/AnotherBST.dir/Queue.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  OBJECT_DIR = CMakeFiles/AnotherBST.dir
+  OBJECT_FILE_DIR = CMakeFiles/AnotherBST.dir
+
+build CMakeFiles/AnotherBST.dir/Stack.cpp.o: CXX_COMPILER__AnotherBST_Debug /Users/john/CLionProjects/AnotherBST/Stack.cpp || cmake_object_order_depends_target_AnotherBST
+  DEP_FILE = CMakeFiles/AnotherBST.dir/Stack.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  OBJECT_DIR = CMakeFiles/AnotherBST.dir
+  OBJECT_FILE_DIR = CMakeFiles/AnotherBST.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AnotherBST
@@ -66,7 +84,7 @@ build CMakeFiles/AnotherBST.dir/BST.cpp.o: CXX_COMPILER__AnotherBST_Debug /Users
 #############################################
 # Link the executable AnotherBST
 
-build AnotherBST: CXX_EXECUTABLE_LINKER__AnotherBST_Debug CMakeFiles/AnotherBST.dir/main.cpp.o CMakeFiles/AnotherBST.dir/BST.cpp.o
+build AnotherBST: CXX_EXECUTABLE_LINKER__AnotherBST_Debug CMakeFiles/AnotherBST.dir/main.cpp.o CMakeFiles/AnotherBST.dir/BST.cpp.o CMakeFiles/AnotherBST.dir/LinkedList.cpp.o CMakeFiles/AnotherBST.dir/Queue.cpp.o CMakeFiles/AnotherBST.dir/Stack.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/AnotherBST.dir
   POST_BUILD = :

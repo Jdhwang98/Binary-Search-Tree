@@ -90,19 +90,75 @@ void BST<T>::operator=(const BST<T> &tree) {
 }
 
 template<class T>
-void BST<T>::clear(Node<T> *node) {
+void BST<T>::clear(Node<T>* &node) {
     if (node == nullptr) {
         return;
     }
         clear(node->left);
         clear(node->right);
         delete node;
+        node = nullptr;
 
 }
 
 template<class T>
 void BST<T>::clear() {
     clear(root);
+}
+
+template<class T>
+bool BST<T>::empty(Node<T> *node) {
+    if (node == nullptr){
+        return true;
+    }
+    else {
+        return false;
+    }
+
+}
+
+template<class T>
+bool BST<T>::empty() {
+    return empty(root);
+}
+
+template<class T>
+void BST<T>::breadthFirst(Node<T> *node, void (*f)(T &)) {
+    if (node) {
+        return;
+    }
+
+//    if (queue.getSize() < 1){
+//        f(node->data);
+//        queue.push(node->left);
+//        queue.push(node->right);
+//        breadthFirst(root, f);
+//    }
+//    else if (queue.getSize() >= 2){
+//        //need to create a ranged based for loop based on queue size to know how much to push in the queue and top print
+//        f(queue.front(node->data));
+//        queue.pop();
+//        f(queue.front(node->data));
+//        queue.pop()
+//    }
+//    if (node->left != nullptr && node->right != nullptr) {
+//        if (queue.front(!empty())){
+//            f(queue.front(node->left->data));
+//            f(queue.front(node->right->data));
+//            queue.push(queue.front(node->left));
+//            queue.push(queue.front(node->right));
+//            queue.pop();
+//            breadthFirst(root);
+//        }
+//        else {
+//            f(node->data);
+//        }
+//    }
+}
+
+template<class T>
+void BST<T>::breadthFirst(void (*f)(T &)) {
+
 }
 
 namespace {

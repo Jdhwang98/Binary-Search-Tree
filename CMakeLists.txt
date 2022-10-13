@@ -3,4 +3,4 @@ project(AnotherBST)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AnotherBST main.cpp Node.h BST.cpp BST.h)
+add_executable(AnotherBST main.cpp Node.h BST.cpp BST.h LinkedList.cpp LinkedList.h Queue.cpp Queue.h Stack.cpp Stack.h)
