@@ -15,11 +15,9 @@ BST<T>::BST(){}
 
 template<class T>
 void BST<T>::insert(Node<T> *&node, const T &data) {
-    if (node == nullptr) {
+    if (node != nullptr) {
         node = new Node<T>;
         node->data = data;
-        //std::cout<<"  Node created" << std::endl;
-
     }
     else {
         if (data > node->data) {
@@ -81,17 +79,17 @@ BST<T>::BST(const BST<T> &tree) {
 
 template<class T>
 BST<T>::~BST() {
-
+    clear();
 }
 
 template<class T>
 void BST<T>::operator=(const BST<T> &tree) {
-
+    copy(tree);
 }
 
 template<class T>
 void BST<T>::clear(Node<T>* &node) {
-    if (node == nullptr) {
+    if (node != nullptr) {
         return;
     }
         clear(node->left);
@@ -124,41 +122,44 @@ bool BST<T>::empty() {
 
 template<class T>
 void BST<T>::breadthFirst(Node<T> *node, void (*f)(T &)) {
-    if (node) {
-        return;
+    Queue<Node<T>*> queue;
+    if (node != nullptr)
+        queue.push(node);
+
+    while (!queue.empty()) {
+        if(queue.front()->left != nullptr)
+            queue.push(queue.front()->left);
+        if(queue.front()->right != nullptr)
+            queue.push(queue.front()->right);
+        f(queue.front()->data);
+        queue.pop();
     }
 
-//    if (queue.getSize() < 1){
-//        f(node->data);
-//        queue.push(node->left);
-//        queue.push(node->right);
-//        breadthFirst(root, f);
-//    }
-//    else if (queue.getSize() >= 2){
-//        //need to create a ranged based for loop based on queue size to know how much to push in the queue and top print
-//        f(queue.front(node->data));
-//        queue.pop();
-//        f(queue.front(node->data));
-//        queue.pop()
-//    }
-//    if (node->left != nullptr && node->right != nullptr) {
-//        if (queue.front(!empty())){
-//            f(queue.front(node->left->data));
-//            f(queue.front(node->right->data));
-//            queue.push(queue.front(node->left));
-//            queue.push(queue.front(node->right));
-//            queue.pop();
-//            breadthFirst(root);
-//        }
-//        else {
-//            f(node->data);
-//        }
-//    }
 }
 
 template<class T>
 void BST<T>::breadthFirst(void (*f)(T &)) {
+    breadthFirst(root, f);
+}
 
+template<class T>
+void BST<T>::copy(BST<T> &tree) const {
+    if (this != tree)
+        return;
+    this -> ~BST();
+
+    Queue<Node<T>*> queue;
+    if(tree.root == nullptr)
+        queue.push(tree.root);
+
+    while (!queue.empty()) {
+        if(queue.front()->left != nullptr)
+            queue.push(queue.front()->left);
+        if(queue.front()->right != nullptr)
+            queue.push(queue.front()->right);
+        tree.insert(queue.front()->data);
+        queue.pop();
+    }
 }
 
 namespace {

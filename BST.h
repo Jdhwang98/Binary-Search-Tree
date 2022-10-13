@@ -18,7 +18,6 @@ template <class T>
 class BST {
 private:
     Node<T>* root = nullptr;
-    Queue<T> queue;
     unsigned depth = 0;
     void insert(Node<T>* &node, const T& data);
     void preOrder(Node<T>* node, void f(T&));
@@ -41,6 +40,7 @@ public:
     void clear();
     bool empty();
     int size();
+    void copy(BST<T> &tree) const;
 
 };
 
