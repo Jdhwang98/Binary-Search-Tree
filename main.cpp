@@ -13,16 +13,16 @@ int main() {
     tree.insert(30);
     tree.insert(50);
     tree.inOrder();
-    tree.clear();
-    std::cout<<"output after clear"<<std::endl;
-    tree.insert(69);
-    tree.insert(4);
-    tree.insert(20);
-    tree.insert(100);
-    tree.inOrder();
-    tree.clear();
-    std::cout << "bool: ";
-    std::cout<< tree.empty();
+//    tree.clear();
+//    std::cout<<"output after clear"<<std::endl;
+//    tree.insert(69);
+//    tree.insert(4);
+//    tree.insert(20);
+//    tree.insert(100);
+//    tree.inOrder();
+//    tree.clear();
+//    std::cout << "bool: ";
+//    std::cout<< tree.empty();
 
 //    for(int i = 0; i < 10; i++){
 //        queue.push(i);

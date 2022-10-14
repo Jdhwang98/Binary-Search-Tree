@@ -15,9 +15,10 @@ BST<T>::BST(){}
 
 template<class T>
 void BST<T>::insert(Node<T> *&node, const T &data) {
-    if (node != nullptr) {
+    if (node == nullptr) {
         node = new Node<T>;
         node->data = data;
+        _size++;
     }
     else {
         if (data > node->data) {
@@ -92,11 +93,12 @@ void BST<T>::clear(Node<T>* &node) {
     if (node != nullptr) {
         return;
     }
+    else {
         clear(node->left);
         clear(node->right);
         delete node;
         node = nullptr;
-
+    }
 }
 
 template<class T>
@@ -117,11 +119,11 @@ bool BST<T>::empty(Node<T> *node) {
 
 template<class T>
 bool BST<T>::empty() {
-    return empty(root);
+    return root == nullptr;
 }
 
 template<class T>
-void BST<T>::breadthFirst(Node<T> *node, void (*f)(T &)) {
+void BST<T>::breadthFirst(Node<T>* &node, void (*f)(T &)) {
     Queue<Node<T>*> queue;
     if (node != nullptr)
         queue.push(node);
@@ -149,17 +151,23 @@ void BST<T>::copy(BST<T> &tree) const {
     this -> ~BST();
 
     Queue<Node<T>*> queue;
-    if(tree.root == nullptr)
+    if(tree.root != nullptr) {
         queue.push(tree.root);
+    }
 
     while (!queue.empty()) {
         if(queue.front()->left != nullptr)
             queue.push(queue.front()->left);
         if(queue.front()->right != nullptr)
             queue.push(queue.front()->right);
-        tree.insert(queue.front()->data);
+        insert(queue.front()->data);
         queue.pop();
     }
+}
+
+template<class T>
+int BST<T>::size() {
+    return 0;
 }
 
 namespace {

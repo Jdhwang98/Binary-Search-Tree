@@ -18,12 +18,12 @@ template <class T>
 class BST {
 private:
     Node<T>* root = nullptr;
-    unsigned depth = 0;
+    unsigned _size = 0;
     void insert(Node<T>* &node, const T& data);
     void preOrder(Node<T>* node, void f(T&));
     void inOrder(Node<T>* node, void f(T&));
     void postOrder(Node<T>* node, void f(T&));
-    void breadthFirst(Node<T>* node, void f(T&) = output);
+    void breadthFirst(Node<T>* &node, void f(T&) = output);
     void clear(Node<T>* &node);
     bool empty(Node<T>* node);
 
